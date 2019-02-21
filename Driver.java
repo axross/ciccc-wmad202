@@ -3,5 +3,7 @@ public class Driver {
         Model derrick = new Model("Derrick", "Park", 7, 80, true);
 
         derrick.printDetails();
+
+        derrick.displayModelDetails();
     }
 }
