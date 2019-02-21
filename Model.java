@@ -115,7 +115,7 @@ public class Model {
         int feet = height / INCHES_PER_FOOT;
         int inches = height - feet * INCHES_PER_FOOT;
         String footUnitWord = feet <= 1 ? "foot" : "feet";
-        String inchUnitWord = inches <= 1 ? "foot" : "feet";
+        String inchUnitWord = inches <= 1 ? "inch" : "inches";
 
         return String.format("%d %s %d %s", feet, footUnitWord, inches, inchUnitWord);
     }
@@ -124,7 +124,7 @@ public class Model {
      * @return A string to display model's height in centimeters.
      */
     public double getHeightInCentimeters() {
-        return (double) height * 2.54;
+        return (double) height / CENTIMETERS_PER_INCHES;
     }
 
     /**
@@ -161,8 +161,8 @@ public class Model {
     /**
      * @return Model's weight in kilograms.
      */
-    public long getWeightInKilograms() {
-        return Math.round(weight * 0.453592);
+    public double getWeightInKilograms() {
+        return Math.round(weight / POUNDS_PER_KILOGRAMS);
     }
 
     /**
@@ -184,7 +184,7 @@ public class Model {
     public String getWeightStringInKilograms() {
         double weightInKilograms = getWeightInKilograms();
 
-        return String.format("%d pounds", Math.round(weightInKilograms));
+        return String.format("%d kg", Math.round(weightInKilograms));
     }
 
     /**
@@ -200,7 +200,7 @@ public class Model {
      * @param kilograms Model's weight in kilograms.
      */
     public final void setWeight(long kilograms) {
-        setWeight((double) kilograms / 0.453592);
+        setWeight((double) kilograms * POUNDS_PER_KILOGRAMS);
     }
 
     /**
@@ -290,7 +290,8 @@ public class Model {
      * @param useMetricUnits Whether using metric units or not.
      */
     public void displayModelDetails(boolean useMetricUnits) {
-        String heightString = useMetricUnits == true ? getHeightStringInCentimeters() : getHeightStringInCentimeters();
+        String heightString = useMetricUnits == true ? getHeightStringInCentimeters()
+                : getHeightStringInFeetAndInches();
         String weightString = useMetricUnits == true ? getWeightStringInKilograms() : getWeightStringInPounds();
         String travelString = getCanTravel() == true ? "yep" : "nope";
         String smokeString = getSmokes() == true ? "yep" : "nope";
@@ -312,6 +313,10 @@ public class Model {
     }
 
     public static final int INCHES_PER_FOOT = 12;
+
+    public static final double CENTIMETERS_PER_INCHES = 0.393700787;
+
+    public static final double POUNDS_PER_KILOGRAMS = 2.20462442;
 
     public static final int BASE_RATE_DOLLARS_PER_HOUR = 60;
 
