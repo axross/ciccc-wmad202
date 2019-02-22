@@ -4,13 +4,6 @@ import java.util.Scanner;
 
 public class AgeInFiveYears {
     public static void main(String[] args) {
-        // Hello. What is your name? Percy_Bysshe_Shelley
-
-        // Hi, Percy_Bysshe_Shelley! How old are you? 34
-
-        // Did you know that in five years you will be 39 years old?
-        // And five years ago you were 29! Imagine that!
-
         Scanner reader = new Scanner(System.in);
 
         System.out.print("Hello. What is your name? ");
