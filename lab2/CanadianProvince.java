@@ -45,7 +45,7 @@ public class CanadianProvince {
         int i = 0;
         
         while (i < AVAILABLE_PROVINCES.length) {
-            if (AVAILABLE_PROVINCES[i] == province) {
+            if (AVAILABLE_PROVINCES[i].equals(province)) {
                 return true;
             }
 
@@ -57,7 +57,7 @@ public class CanadianProvince {
 
     private boolean isValidCapital(String capital) {
         for (int i = 0; i < AVAILABLE_CAPITALS.length; ++i) {
-            if (AVAILABLE_CAPITALS[i] == capital) {
+            if (AVAILABLE_CAPITALS[i].equals(capital)) {
                 return true;
             }
         }
