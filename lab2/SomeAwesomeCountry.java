@@ -21,6 +21,26 @@ public class SomeAwesomeCountry {
         this.provinces = provinces;
     }
 
+    public void displayAllProvinces() {
+        for (CanadianProvince province: getProvinces()) {
+            System.out.println(province.getDetails());
+        }
+    }
+
+    public int howManyHaveThisPopulation(int min, int max) {
+        int count = 0;
+        
+        for (CanadianProvince province: getProvinces()) {
+            int populationInMillion = province.getPopulationInMillion();
+            
+            if (populationInMillion >= min && populationInMillion <= max) {
+                count += 1;
+            }
+        }
+
+        return count;
+    }
+
     SomeAwesomeCountry() {
         this.name = "Canada";
         this.provinces = new CanadianProvince[]{
