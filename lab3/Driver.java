@@ -24,5 +24,28 @@ public class Driver {
         rook.move();
         queen.move();
         king.move();
+
+        System.out.println();
+
+        Pawn smartPawn = new Pawn();
+
+        smartPawn.promote(new Queen());
+
+        System.out.println(smartPawn);
+
+        System.out.println(String.format("Is smart pawn just a pawn?: %s", smartPawn.equals(pawn)));
+        System.out.println(String.format("Is smart pawn same as a queen?: %s", smartPawn.equals(queen)));
+
+        Pawn stupidPawn = new Pawn();
+
+        stupidPawn.promote(new Rook());
+
+        System.out.println(String.format("Is smart pawn same as rook pawn?: %s", smartPawn.equals(stupidPawn)));
+
+        Pawn anotherSmartOne = new Pawn();
+
+        anotherSmartOne.promote(new Queen());
+
+        System.out.println(String.format("Are smart pawn and another one friends?: %s", smartPawn.equals(anotherSmartOne)));
     }
 }

@@ -15,14 +15,22 @@ public class Pawn extends ChessPiece {
 
     private int importance = 1;
 
+    private boolean hasBeenPromoted = false;
+
+    ChessPiece newPiece;
+
     @Override
     public int getImportance() {
-        return importance;
+        return newPiece == null ? importance : newPiece.getImportance();
     }
 
     @Override
     protected void setImportance(int importance) {
-        this.importance = importance;
+        if (newPiece == null) {
+            this.importance = importance;
+        } else {
+            this.newPiece.setImportance(importance);
+        }
     }
 
     @Override
@@ -30,6 +38,14 @@ public class Pawn extends ChessPiece {
         return newPiece == null ? MOVE : newPiece.getMove();
     }
 
+    void promote(ChessPiece newPiece) {
+        if (newPiece instanceof Pawn || newPiece instanceof King) {
+            throw new Error();
+        }
+
+        this.newPiece = newPiece;
+        this.hasBeenPromoted = true;
+    }
 
     private static String MOVE = "forward 1";
 }
