@@ -9,6 +9,15 @@ public class Driver {
         ChessPiece queen = new Queen();
         ChessPiece king = new King();
 
+        System.out.println(pawn);
+        System.out.println(knight);
+        System.out.println(bishop);
+        System.out.println(rook);
+        System.out.println(queen);
+        System.out.println(king);
+
+        System.out.println();
+
         pawn.move();
         knight.move();
         bishop.move();

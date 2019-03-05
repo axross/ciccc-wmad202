@@ -1,6 +1,12 @@
 package lab3;
 
 public class Bishop extends ChessPiece {
+    private String name = "Bishop";
+    
+    public String getName() {
+        return name;
+    }
+
     private int importance = 3;
 
     @Override
@@ -14,14 +20,9 @@ public class Bishop extends ChessPiece {
     }
 
     @Override
-    public void move() {
-        System.out.println(howToMove);
+    public String getMove() {
+        return MOVE;
     }
 
-    @Override
-    public String toString() {
-        return String.format("Bishop (can move %s)", howToMove);
-    }
-
-    private static String howToMove = "diagonally";
+    private static String MOVE = "diagonally";
 }
