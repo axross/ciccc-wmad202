@@ -1,10 +1,8 @@
 package lab3;
 
 public class Bishop extends ChessPiece {
-    private String name = "Bishop";
-    
     public String getName() {
-        return name;
+        return NAME;
     }
 
     private int importance = 3;
@@ -23,6 +21,8 @@ public class Bishop extends ChessPiece {
     public String getMove() {
         return MOVE;
     }
+
+    private static String NAME = "Pawn";
 
     private static String MOVE = "diagonally";
 }

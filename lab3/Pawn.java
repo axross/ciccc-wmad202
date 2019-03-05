@@ -1,16 +1,14 @@
 package lab3;
 
 public class Pawn extends ChessPiece {
-    private String name = "Pawn";
-
     public String getName() {
         return hasBeenPromoted
             ? String.format(
                 "Promoted %s as %s",
-                name.toLowerCase(),
+                NAME.toLowerCase(),
                 newPiece.getName().toLowerCase()
             )
-            : name;
+            : NAME;
     }
 
     private int importance = 1;
@@ -46,6 +44,8 @@ public class Pawn extends ChessPiece {
         this.newPiece = newPiece;
         this.hasBeenPromoted = true;
     }
+
+    private static String NAME = "Pawn";
 
     private static String MOVE = "forward 1";
 }

@@ -1,10 +1,8 @@
 package lab3;
 
 public class King extends ChessPiece {
-    private String name = "King";
-    
     public String getName() {
-        return name;
+        return NAME;
     }
 
     private int importance = 1000;
@@ -23,6 +21,8 @@ public class King extends ChessPiece {
     public String getMove() {
         return MOVE;
     }
+
+    private static String NAME = "King";
 
     private static String MOVE = "one square";
 }
